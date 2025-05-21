@@ -1,110 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tools Hub</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <div class="wrapper">
-    <div class="top-bar">AI Tools Hub</div>
-
-    <header>
-      <button class="scroll-arrow" onclick="scrollNav(-150)">←</button>
-
-      <div id="nav-scroll" class="nav-container">
-        <button class="nav-btn" onclick="showHome()"><i>🏠</i> الصفحة الرئيسية</button>
-        <button class="nav-btn" onclick="showTool('🎬 إنشاء فيديو من نص')">🎬 إنشاء فيديو من نص</button>
-        <button class="nav-btn" onclick="showTool('🎤 تحويل صوت إلى نص')">🎤 تحويل صوت إلى نص</button>
-        <button class="nav-btn" onclick="showTool('📄 السيرة الذاتية')">📄 السيرة الذاتية</button>
-        <button class="nav-btn" onclick="showTool('📝 تلخيص المقالات')">📝 تلخيص المقالات</button>
-        <button class="nav-btn" onclick="showTool('🖼️ توليد الصور')">🖼️ توليد الصور</button>
-        <button class="nav-btn" onclick="showTool('🔍 مستخرج النصوص')">🔍 مستخرج النصوص</button>
-      </div>
-
-      <button class="scroll-arrow" onclick="scrollNav(150)">→</button>
-    </header>
-
-    <div class="content" id="main-content">
-      <div class="tool-box">
-        <h2 id="welcome-message">مرحباً بك في مركز أدوات الذكاء الاصطناعي</h2>
-        <p>اختر الأداة من الشريط أعلاه للبدء.</p>
-      </div>
-  <!-- قسم من نحن -->
-  <div class="tool-box" style="margin-top: 2em;">
-    <h3 style="color: #ffcc00;">من نحن</h3>
-    <p>
-      نحن فريق شغوف بالتقنية نسعى لتوفير أفضل أدوات الذكاء الاصطناعي باللغة العربية بطريقة سهلة وسلسة تساعدك في إنجاز أعمالك بكفاءة.
-    </p>
-  </div>
-
-  <!-- قسم تواصل معنا -->
-  <div class="tool-box" style="margin-top: 2em;">
-    <h3 style="color: #ffcc00;">تواصل معنا</h3>
-    <p>
-      يمكنك التواصل معنا عبر البريد الإلكتروني التالي:<br>
-      <strong style="color: #ffffff;">[email@example.com]</strong> <!-- ضع إيميلك هنا لاحقاً -->
-    </p>
-  </div>
-
-  <!-- قسم اقتراح أداة جديدة -->
-  <div class="tool-box" style="margin-top: 2em;">
-    <h3 style="color: #ffcc00;">اقترح أداة جديدة</h3>
-    <form onsubmit="alert('تم إرسال الاقتراح. شكرًا لك!'); return false;">
-      <input type="text" placeholder="اسم الأداة المقترحة" required style="padding: 0.5em; width: 80%; border-radius: 10px; border: none; margin-bottom: 1em;">
-      <br>
-      <textarea placeholder="وصف مختصر للأداة" required style="padding: 0.5em; width: 80%; height: 100px; border-radius: 10px; border: none; margin-bottom: 1em;"></textarea>
-      <br>
-      <button type="submit" style="padding: 0.6em 1.5em; background: #5b5bd1; color: white; border: none; border-radius: 10px; font-size: 1em; cursor: pointer;">إرسال</button>
-    </form>
-  </div>
-
-    </div>
-
-    <footer>
-      &copy; 2025 AI Tools Hub - جميع الحقوق محفوظة
-    </footer>
-  </div>
-
-  <script>
-    function showTool(name) {
-      document.getElementById("main-content").innerHTML = `
-        <div class="tool-box">
-          <h2>${name}</h2>
-          <p>جارٍ تحميل الأداة: ${name}</p>
-        </div>`;
-    }
-
-    function showHome() {
-      document.getElementById("main-content").innerHTML = `
-        <div class="tool-box">
-          <h2 id="welcome-message">مرحباً بك في مركز أدوات الذكاء الاصطناعي</h2>
-          <p>اختر الأداة من الشريط أعلاه للبدء.</p>
-        </div>`;
-    }
-
-    function scrollNav(distance) {
-      const nav = document.getElementById('nav-scroll');
-      nav.scrollBy({ left: distance, behavior: 'smooth' });
-    }
-
-    const messages = [
-      "مرحباً بك في مركز أدوات الذكاء الاصطناعي",
-      "اكتشف أدوات مبتكرة تعتمد على الذكاء الاصطناعي",
-      "ابدأ رحلتك الذكية الآن!"
-    ];
-    let index = 0;
-    setInterval(() => {
-      const el = document.getElementById("welcome-message");
-      if (el) {
-        index = (index + 1) % messages.length;
-        el.textContent = messages[index];
-      }
-    }, 5000);
-  </script>
-</body>
-</html>
