@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200"/>
+  <title>AI Tools Hub</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(120deg, #1e1e3f, #34346d);
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      width: 1200px;
+      margin: 0 auto;
+      overflow: auto;
+    }
+
+    .top-bar {
+      background: #2b2b5c;
+      text-align: center;
+      padding: 1em;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #ffcc00;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #444;
+    }
+
+    header {
+      background: #34346d;
+      display: flex;
+      align-items: center;
+      padding: 0.5em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: inline-flex;
+      overflow-x: auto;
+      flex: 1;
+      scroll-behavior: smooth;
+    }
+
+    .nav-btn {
+      background: #4646a0;
+      border: none;
+      color: white;
+      padding: 0.6em 1.2em;
+      margin: 0 0.3em;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-btn:hover {
+      background: #5b5bd1;
+      transform: scale(1.05);
+    }
+
+    .nav-btn i {
+      margin-left: 8px;
+    }
+
+    .scroll-arrow {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.8em;
+      cursor: pointer;
+      padding: 0 0.5em;
+      user-select: none;
+    }
+
+    .content {
+      padding: 2em;
+      text-align: center;
+      min-height: 60vh;
+    }
+
+    .tool-box {
+      background: #2a2a4e;
+      border-radius: 16px;
+      padding: 2em;
+      margin: auto;
+      max-width: 900px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background: #22224a;
+      color: #aaa;
+      font-size: 0.9em;
+      border-top: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="top-bar">AI Tools Hub</div>
+
+    <header>
+      <button class="scroll-arrow" onclick="scrollNav(-150)">←</button>
+
+      <div id="nav-scroll" class="nav-container">
+        <button class="nav-btn" onclick="showHome()"><i>🏠</i> الصفحة الرئيسية</button>
+        <button class="nav-btn" onclick="showTool('🎬 إنشاء فيديو من نص')">🎬 إنشاء فيديو من نص</button>
+        <button class="nav-btn" onclick="showTool('🎤 تحويل صوت إلى نص')">🎤 تحويل صوت إلى نص</button>
+        <button class="nav-btn" onclick="showTool('📄 السيرة الذاتية')">📄 السيرة الذاتية</button>
+        <button class="nav-btn" onclick="showTool('📝 تلخيص المقالات')">📝 تلخيص المقالات</button>
+        <button class="nav-btn" onclick="showTool('🖼️ توليد الصور')">🖼️ توليد الصور</button>
+        <button class="nav-btn" onclick="showTool('🔍 مستخرج النصوص')">🔍 مستخرج النصوص</button>
+      </div>
+
+      <button class="scroll-arrow" onclick="scrollNav(150)">→</button>
+    </header>
+
+    <div class="content" id="main-content">
+      <div class="tool-box">
+        <h2 id="welcome-message">مرحباً بك في مركز أدوات الذكاء الاصطناعي</h2>
+        <p>اختر الأداة من الشريط أعلاه للبدء.</p>
+      </div>
+  <!-- قسم من نحن -->
+  <div class="tool-box" style="margin-top: 2em;">
+    <h3 style="color: #ffcc00;">من نحن</h3>
+    <p>
+      نحن فريق شغوف بالتقنية نسعى لتوفير أفضل أدوات الذكاء الاصطناعي باللغة العربية بطريقة سهلة وسلسة تساعدك في إنجاز أعمالك بكفاءة.
+    </p>
+  </div>
+
+  <!-- قسم تواصل معنا -->
+  <div class="tool-box" style="margin-top: 2em;">
+    <h3 style="color: #ffcc00;">تواصل معنا</h3>
+    <p>
+      يمكنك التواصل معنا عبر البريد الإلكتروني التالي:<br>
+      <strong style="color: #ffffff;">[email@example.com]</strong> <!-- ضع إيميلك هنا لاحقاً -->
+    </p>
+  </div>
+
+  <!-- قسم اقتراح أداة جديدة -->
+  <div class="tool-box" style="margin-top: 2em;">
+    <h3 style="color: #ffcc00;">اقترح أداة جديدة</h3>
+    <form onsubmit="alert('تم إرسال الاقتراح. شكرًا لك!'); return false;">
+      <input type="text" placeholder="اسم الأداة المقترحة" required style="padding: 0.5em; width: 80%; border-radius: 10px; border: none; margin-bottom: 1em;">
+      <br>
+      <textarea placeholder="وصف مختصر للأداة" required style="padding: 0.5em; width: 80%; height: 100px; border-radius: 10px; border: none; margin-bottom: 1em;"></textarea>
+      <br>
+      <button type="submit" style="padding: 0.6em 1.5em; background: #5b5bd1; color: white; border: none; border-radius: 10px; font-size: 1em; cursor: pointer;">إرسال</button>
+    </form>
+  </div>
+
+    </div>
+
+    <footer>
+      &copy; 2025 AI Tools Hub - جميع الحقوق محفوظة
+    </footer>
+  </div>
+
+  <script>
+    function showTool(name) {
+      document.getElementById("main-content").innerHTML = `
+        <div class="tool-box">
+          <h2>${name}</h2>
+          <p>جارٍ تحميل الأداة: ${name}</p>
+        </div>`;
+    }
+
+    function showHome() {
+      document.getElementById("main-content").innerHTML = `
+        <div class="tool-box">
+          <h2 id="welcome-message">مرحباً بك في مركز أدوات الذكاء الاصطناعي</h2>
+          <p>اختر الأداة من الشريط أعلاه للبدء.</p>
+        </div>`;
+    }
+
+    function scrollNav(distance) {
+      const nav = document.getElementById('nav-scroll');
+      nav.scrollBy({ left: distance, behavior: 'smooth' });
+    }
+
+    const messages = [
+      "مرحباً بك في مركز أدوات الذكاء الاصطناعي",
+      "اكتشف أدوات مبتكرة تعتمد على الذكاء الاصطناعي",
+      "ابدأ رحلتك الذكية الآن!"
+    ];
+    let index = 0;
+    setInterval(() => {
+      const el = document.getElementById("welcome-message");
+      if (el) {
+        index = (index + 1) % messages.length;
+        el.textContent = messages[index];
+      }
+    }, 5000);
+  </script>
+</body>
+</html>
